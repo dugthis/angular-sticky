@@ -34,9 +34,9 @@ angular.module('sticky', [])
 					scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 
 					if ( scrollTop >= stickyLine ){
-						$elem.css('position', 'fixed');
+						$elem.addClass('fixed');
 					} else {
-						$elem.css('position', initialPositionStyle);
+						$elem.removeClass('fixed');
 					}
 				}
 
@@ -44,7 +44,7 @@ angular.module('sticky', [])
 				// Handle the resize event
 				//
 				function resize(){
-					$elem.css('position', initialPositionStyle);
+                    $elem.removeClass('fixed');
 					$timeout(setInitial);
 				}
 
